@@ -21,11 +21,11 @@ import psycopg2
 
 # ── Redshift connection config ─────────────────────────────────────────────────
 DB_CONFIG = {
-    "host":     "your-cluster.redshift.amazonaws.com",
+    "host":     "toll-redshift-cluster.redshift.amazonaws.com",
     "port":     5439,
     "dbname":   "tolldb",
     "user":     "etl_user",
-    "password": "your_password",       # use AWS Secrets Manager in production
+    "password": "os.getenv(...)",       # use AWS Secrets Manager in production
 }
 
 
