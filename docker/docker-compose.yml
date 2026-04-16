@@ -131,7 +131,7 @@ services:
         airflow db init &&
         airflow users create --username admin --password admin
           --firstname Mayukh --lastname Ghosh
-          --role Admin --email mayukh@example.com
+          --role Admin --email 23052334@kiit.ac.in
       "
     volumes:
       - ../airflow/dags:/opt/airflow/dags
