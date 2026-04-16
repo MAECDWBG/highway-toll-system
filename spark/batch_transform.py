@@ -21,9 +21,9 @@ from pyspark.sql import functions as F
 
 # ── Config ─────────────────────────────────────────────────────────────────────
 S3_RAW_PATH      = "s3a://highway-toll-raw/transactions/"
-REDSHIFT_URL     = "jdbc:redshift://your-cluster.redshift.amazonaws.com:5439/tolldb"
+REDSHIFT_URL     = "jdbc:redshift://toll-redshift-cluster.redshift.amazonaws.com:5439/tolldb"
 REDSHIFT_USER    = "etl_user"
-REDSHIFT_PASS    = "your_password"          # use AWS Secrets Manager in production
+REDSHIFT_PASS    = "os.getenv(...)"          # use AWS Secrets Manager in production
 REDSHIFT_TMPDIR  = "s3a://highway-toll-tmp/redshift-staging/"
 
 
