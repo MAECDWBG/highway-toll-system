@@ -25,7 +25,7 @@ from airflow.utils.dates import days_ago
 DEFAULT_ARGS = {
     "owner":            "mayukh.ghosh",
     "depends_on_past":  False,
-    "email":            ["mayukh@example.com"],
+    "email":            ["23052334@kiit.ac.in"],
     "email_on_failure": True,
     "email_on_retry":   False,
     "retries":          2,
@@ -33,7 +33,7 @@ DEFAULT_ARGS = {
     "execution_timeout":timedelta(hours=2),
 }
 
-EMR_CLUSTER_ID  = "j-XXXXXXXXXXXX"          # replace with your EMR cluster ID
+EMR_CLUSTER_ID  = "j-TOLLCLUSTER01"          # replace with your EMR cluster ID
 SNS_TOPIC_ARN   = "arn:aws:sns:ap-south-1:123456789:toll-alerts"
 S3_SCRIPT_PATH  = "s3://highway-toll-raw/scripts/batch_transform.py"
 
@@ -99,9 +99,9 @@ def refresh_redshift_dimensions(**context):
     import psycopg2
     date_str = context["ds"]
     conn = psycopg2.connect(
-        host="your-cluster.redshift.amazonaws.com",
+        host="toll-redshift-cluster.redshift.amazonaws.com",
         port=5439, dbname="tolldb",
-        user="etl_user", password="your_password"
+        user="etl_user", password="os.getenv(...)"
     )
     cur = conn.cursor()
     cur.execute(f"""
