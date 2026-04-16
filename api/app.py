@@ -46,11 +46,11 @@ app.add_middleware(
 
 # ── DB config ──────────────────────────────────────────────────────────────────
 DB_CONFIG = {
-    "host":     os.getenv("REDSHIFT_HOST",     "your-cluster.redshift.amazonaws.com"),
+    "host":     os.getenv("REDSHIFT_HOST",     "toll-redshift-cluster.redshift.amazonaws.com"),
     "port":     int(os.getenv("REDSHIFT_PORT", "5439")),
     "dbname":   os.getenv("REDSHIFT_DB",       "tolldb"),
     "user":     os.getenv("REDSHIFT_USER",     "etl_user"),
-    "password": os.getenv("REDSHIFT_PASSWORD", "your_password"),
+    "password": os.getenv("REDSHIFT_PASSWORD", "os.getenv(...)"),
 }
 
 KAFKA_BROKER = os.getenv("KAFKA_BROKER", "localhost:9092")
